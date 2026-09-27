@@ -1,0 +1,325 @@
+/*------------common----------------*/
+
+:root{
+  --default-font: 'Pretendard', sans-serif;
+  --coding-font: 'D2Coding', serif;
+  --point-color: #9CDCFE;
+  --black-color: #000;
+  --white-color: #fff;
+  --gray-color: #b1b1b1;
+  --margin: calc(100% - 100px);
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.profile_title{
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 70px;
+}
+.profile_title .profile_line{
+  flex: 1;
+  height: 1px;
+  background-color: #999;
+}
+.profile_title .title_txt{
+  margin: 0 40px;
+  white-space: nowrap;
+}
+
+/*------------common----------------*/
+
+
+/*====================인트로 페이지=====================*/
+
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--black-color);
+  color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  display: none;
+}
+.intro_text{
+  font-size: 1.85rem;
+  font-family: var(--coding-font);
+  line-height: 40px;
+}
+.intro01{color: #C586C0;}
+.intro_name01, .intro_name02{color: var(--point-color);}
+.intro_true{color: #3794FF;}
+.intro06{color: #6A9955;}
+.intro07{color: #C586C0;}
+.intro_create{color: #E5E58C;}
+
+
+/*====================메인 페이지=====================*/
+
+.header{
+  width: 100%;
+  background-color: var(--black-color);
+}
+.header .nav{
+  width: calc(100% - 100px); height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+  box-sizing: border-box;
+}
+.nav_left,
+.nav_right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white-color);
+}
+.nav_left img{
+  width: 24px; height: 24px;
+}
+.nav_right li a{
+  margin-left: 30px;
+  color: var(--gray-color);
+  font-weight: 400;
+}
+.thin{
+  font-weight: 300;
+  font-size: 0.75rem;
+}
+
+.home{
+  width: 100%; height: calc(100vh - 50px);
+  background-color: var(--black-color);
+  position: relative;
+}
+.home .main_text{
+  position: absolute;
+  top: calc(50% - 230px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--coding-font);
+  font-size: 120px;
+  color: var(--white-color);
+  text-align: center;
+}
+.home .main_text .main_name{
+  color: var(--point-color);
+}
+
+.deco01, .deco02, .deco03{
+  position: absolute;
+  font-size: 3rem;
+}
+.deco01{
+  top: 160px;
+  left: 620px;
+}
+.deco02{
+  top: 400px;
+  right: 500px;
+}
+.deco03{
+  bottom: 110px;
+  left: 730px;
+}
+
+.home .bg_line{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home .main_bottom_text{
+  width: calc(100% - 100px);
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--white-color);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 200;
+}
+.scroll{
+  text-align: center;
+  font-size: 14px;
+}
+
+/*====================프로필 페이지=====================*/
+
+.profile{
+  width: 100%;
+  background-color: var(--black-color);
+  border-top: 1px solid white;
+  box-sizing: border-box;
+  position: relative;
+}
+.profile_wrap{
+  width: var(--margin);
+  margin: 0 auto;
+  margin-top: 180px;
+}
+
+.profile_top{
+  display: flex;
+  justify-content: space-between;
+}
+.hello{
+  font-family: var(--default-font);
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: var(--white-color);
+}
+.hello_name{color: var(--point-color);}
+.profile_snap{
+  width: 500px; height: 600px;
+  background-color: #ccc;
+  border-radius: 100px 0 100px 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.profile .profile_top .hello_sub{
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 30px;
+}
+
+.profile .profile_top .profile_bg{
+  position: absolute;
+  top: 15%;
+  left: 0;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 180px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/*------ profile_title ------*/
+
+.profile_boxs{
+  width: var(--margin);
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.profile_boxs .profile_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc((100% - 40px) / 3);
+  flex-shrink: 0;
+  height: 250px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0F0F0F, #0F0F0F) padding-box,
+    linear-gradient(to top, #666, #111) border-box;
+}
+.profile_boxs .profile_icon{
+  width: 40px; max-height: 38px;
+}
+.profile_box p{
+  font-size: 18px;
+}
+.profile_box .profile_box_txt01{
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.profile_box .profile_box_txt02 > span,
+.profile_box .profile_box_txt03 > span{
+  font-size: 12px;
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.experience_content .profile_title,
+.skill_content .profile_title{
+  margin-top: 50px;
+}
+
+/*--------------skills_list------------------*/
+
+.skill_content{
+  padding-bottom: 50px;
+}
+.skills_list{
+  width: 1070px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.skills_list .skill_icons > div{
+  margin-bottom: 50px;
+}
+.skills_list .skill_icons > div > p{
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.skills_list .skill_icons .skill_box{
+  display: flex;
+  gap: 35px;
+}
+.skills_list .skill_icons .skill_box .skill_img{
+  cursor: pointer;
+}
+
+.skills_list .skill_descript .skill_click{
+  font-size: 12px;
+  color: #B1B1B1;
+  text-align: center;
+  margin-top: 15px;
+}
+.skills_list .skill_descript .skill_desc{
+  width: 400px; height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 80px;
+  margin-top: 50px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  background:
+    linear-gradient(#0F0F0F, #0F0F0F) padding-box,
+    linear-gradient(to top, #666, #111) border-box;
+}
+.skill_desc .skill_title{
+  font-size: 20px;
+  margin: 0 10px;
+}
+.skill_desc .skill_iconImg{
+  width: 100px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+.skill_desc .skill_text{
+  text-align: center;
+}
+
+.skill_img{width: 70px;}
+.skill_iconImg{width: 100px;}
+
