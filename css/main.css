@@ -470,6 +470,65 @@ body{
 
 /*===============컨텍 페이지====================*/
 
+.contact_page{
+  height: 800px;
+
+  .together_text{
+    text-align: center;
+
+    p{
+      &:first-child{
+        font-family: var(--coding-font);
+        color: var(--point-color);
+        font-size: 18px;
+      }
+
+      &:last-child{
+        font-size: 30px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .email_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    position: relative;
+
+    .myEmail{
+      font-size: 6rem;
+      font-weight: 600;
+    }
+    .fa-clone{
+      color: var(--white-color);
+      font-size: 3rem;
+      margin-left: 25px;
+      margin-top: 15px;
+    }
+  }
+
+  .copy_popup{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--white-color);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
