@@ -466,6 +466,10 @@ body{
       }
     }
   }
+
+  .scroll{
+      margin-bottom: 150px;
+    }
 }
 
 /*===============컨텍 페이지====================*/
@@ -511,10 +515,25 @@ body{
 
   .copy_popup{
     position: absolute;
-    top: 0;
+    bottom: 150px;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--white-color);
+    color: #b1b1b1;
+    background-color: #292929;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 12px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid #292929;
+    }
   }
 }
 
