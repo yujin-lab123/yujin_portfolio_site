@@ -7,11 +7,12 @@
   --black-color: #000;
   --white-color: #fff;
   --gray-color: #b1b1b1;
-  --margin: calc(100% - 100px);
+  --margin: calc(100% - 180px);
 }
 
 body{
   overflow-x: hidden;
+  background-color: var(--black-color);
 }
 
 .profile_title{
@@ -28,6 +29,12 @@ body{
 .profile_title .title_txt{
   margin: 0 40px;
   white-space: nowrap;
+  font-family: var(--coding-font);
+}
+
+.scroll{
+  text-align: center;
+  font-size: 14px;
 }
 
 /*------------common----------------*/
@@ -70,7 +77,7 @@ body{
   background-color: var(--black-color);
 }
 .header .nav{
-  width: calc(100% - 100px); height: 50px;
+  width: var(--margin); height: 50px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -152,18 +159,12 @@ body{
   font-size: 12px;
   font-weight: 200;
 }
-.scroll{
-  text-align: center;
-  font-size: 14px;
-}
 
 /*====================프로필 페이지=====================*/
 
 .profile{
   width: 100%;
   background-color: var(--black-color);
-  border-top: 1px solid white;
-  box-sizing: border-box;
   position: relative;
 }
 .profile_wrap{
@@ -174,13 +175,15 @@ body{
 
 .profile_top{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 180px;
 }
 .hello{
   font-family: var(--default-font);
   font-size: 3.5rem;
   font-weight: 500;
   color: var(--white-color);
+  margin-top: 50px;
 }
 .hello_name{color: var(--point-color);}
 .profile_snap{
@@ -200,10 +203,11 @@ body{
 
 .profile .profile_top .profile_bg{
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 0;
   color: rgba(255, 255, 255, 0.1);
   font-size: 180px;
+  font-family: var(--coding-font);
   white-space: nowrap;
   z-index: 1;
 }
@@ -214,7 +218,8 @@ body{
   width: var(--margin);
   margin: 0 auto;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 40px;
   flex-wrap: wrap;
 }
 .profile_boxs .profile_box{
@@ -222,8 +227,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc((100% - 40px) / 3);
-  flex-shrink: 0;
+  width: calc(1280px / 3);
   height: 250px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -277,6 +281,7 @@ body{
   margin-bottom: 20px;
   font-size: 14px;
   font-weight: 300;
+  font-family: var(--coding-font);
 }
 .skills_list .skill_icons .skill_box{
   display: flex;
@@ -310,6 +315,7 @@ body{
 .skill_desc .skill_title{
   font-size: 20px;
   margin: 0 10px;
+  font-family: var(--coding-font);
 }
 .skill_desc .skill_iconImg{
   width: 100px;
@@ -322,4 +328,166 @@ body{
 
 .skill_img{width: 70px;}
 .skill_iconImg{width: 100px;}
+
+
+/*===============프로젝트 목록==================*/
+
+.project_list_section{
+  width: var(--margin);
+  margin: 0 auto;
+  margin-bottom: 100px;
+
+  .project_list{
+    margin: 100px 0;
+    .project_top_title{
+      font-size: 6rem;
+      font-family: var(--coding-font);
+
+      .p_title_deco{
+        width: 90px;
+        display: inline-block;
+
+        img{
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+
+    .p_sub_title{
+        font-size: 18px;
+        color: #B1B1B1;
+       }
+  }
+
+  .project_list_container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-bottom: 80px;
+
+    .project_box{
+      width: calc((100% - 60px) / 2);
+
+      .project_thumbnail{
+        width: 100%; 
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+
+        img{
+          width: 100%;
+          scale: 1.01;
+        }
+
+        &::after{
+          content: '';
+          width: 100%; height: 100%;
+          background-color: rgba(0, 0, 0, 0.4);
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        &:hover img{
+          scale: 1.05;
+          transition: 0.3s ease;
+        }
+
+        .thumb_text{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          z-index: 1;
+
+          p{
+
+            &:first-child{
+              font-size: 3rem;
+            }
+            &:last-child{
+              display: inline-block;
+              padding: 5px 20px;
+              border: 1px solid var(--white-color);
+              box-sizing: border-box;
+              border-radius: 20px;
+              font-size: 14px;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+
+      .project_text{
+        font-size: 2rem;
+        font-weight: 500;
+        margin-left: 30px;
+        margin-top: 10px;
+        position: relative;
+
+        &::after{
+          content: '개인제작';
+          position: absolute;
+          top: 10px;
+          left: 255px;
+          font-size: 14px;
+          border: 1px solid var(--point-color);
+          color: var(--point-color);
+          padding: 3px 10px;
+          border-radius: 100px;
+        }
+      }
+
+      .text_ovenlog{
+        &::after{
+          left: 225px;
+        }
+      }
+      .text_busanlibrary{
+        &::after{
+          content: '팀프로젝트';
+          border-color: #3794FF;
+          color: #3794FF;
+          left: 285px;
+        }
+      }
+      .text_scentlab{
+        &::after{
+          left: 165px;
+        }
+      }
+
+      .project_desc{
+        margin-left: 30px;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+/*===============컨텍 페이지====================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
