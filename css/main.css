@@ -122,6 +122,7 @@ body{
 }
 .home .main_text .main_name{
   color: var(--point-color);
+  position: relative;
 }
 
 .deco01, .deco02, .deco03{
@@ -174,20 +175,21 @@ body{
 }
 
 .profile_top{
+  height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 180px;
+  gap: 150px;
 }
 .hello{
   font-family: var(--default-font);
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 500;
   color: var(--white-color);
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .hello_name{color: var(--point-color);}
 .profile_snap{
-  width: 500px; height: 600px;
+  width: 400px; height: 500px;
   background-color: #ccc;
   border-radius: 100px 0 100px 0;
   overflow: hidden;
@@ -203,7 +205,7 @@ body{
 
 .profile .profile_top .profile_bg{
   position: absolute;
-  top: 20%;
+  top: 21%;
   left: 0;
   color: rgba(255, 255, 255, 0.1);
   font-size: 180px;
@@ -219,7 +221,7 @@ body{
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 .profile_boxs .profile_box{
@@ -227,7 +229,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(1280px / 3);
+  width: calc(1024px / 3);
   height: 250px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -264,9 +266,7 @@ body{
 
 /*--------------skills_list------------------*/
 
-.skill_content{
-  padding-bottom: 50px;
-}
+
 .skills_list{
   width: 1070px;
   margin: 0 auto;
@@ -336,6 +336,14 @@ body{
   width: var(--margin);
   margin: 0 auto;
   margin-bottom: 100px;
+  position: relative;
+
+  .bg_line{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 
   .project_list{
     margin: 100px 0;
@@ -468,17 +476,19 @@ body{
   }
 
   .scroll{
-      margin-bottom: 150px;
+      margin-bottom: 100px;
     }
 }
 
 /*===============컨텍 페이지====================*/
 
 .contact_page{
-  height: 800px;
+  height: 100vh;
+  border-top: 1px solid var(--black-color);
 
   .together_text{
     text-align: center;
+    margin-top: 100px;
 
     p{
       &:first-child{
@@ -528,7 +538,7 @@ body{
     &::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -9px;
       left: 50%;
       transform: translateX(-50%);
       border-left: 8px solid transparent;
