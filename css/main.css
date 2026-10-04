@@ -100,6 +100,11 @@ body{
   color: var(--gray-color);
   font-weight: 400;
 }
+.nav_right li:hover a{
+  color: var(--white-color);
+  transition: all 0.3s;
+}
+
 .thin{
   font-weight: 300;
   font-size: 0.75rem;
@@ -514,12 +519,14 @@ body{
     .myEmail{
       font-size: 6rem;
       font-weight: 600;
+      cursor: pointer;
     }
     .fa-clone{
       color: var(--white-color);
       font-size: 3rem;
       margin-left: 25px;
       margin-top: 15px;
+      cursor: pointer;
     }
   }
 
