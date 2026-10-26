@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/ovenlog.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/all.min.js"></script>
-  <script src="./javascript/intro.js"></script>
+  <script src="./javascript/subpage_ovenlog.js" defer></script>
   <style>
     *{margin: 0; padding: 0;}
     li{list-style: none;}
@@ -54,10 +54,160 @@
 </head>
 <body>
 
-  <video autoplay loop muted playsinline class="ovenlog_window">
-    <source src="./images/img/ovenlog_fullpage.webm" type="video/webm">
-  <img src="./images/img/fallback.png" alt="영상 재생 불가 시 표시될 이미지">
-  </video>
+  <header class="header" id="home">
+  <nav class="nav">
+    <div class="nav_left">
+      <img src="./images/icon/portfolio_logo.png" alt="로고">
+      <span>YUJIN</span>
+      <span class="thin">|</span>
+      <span class="thin">Frontend Developer</span>
+    </div>
+
+    <ul class="nav_right">
+      <li><a href="index.html">Profile</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header><!--헤더 gnb nav-->
+
+<section class="detail_page">
+<div class="d_topTitle">
+  <div class="d_title">
+    <p class="d_num">01</p>
+    <p class="d_mainTitle">오븐로그 쇼핑몰</p>
+    <p class="d_subTitle">수제 제과제빵 개인 쇼핑몰 적응형 웹사이트</p>
+    <div class="site_btn">
+      <span><a href="https://jyujin.dothome.co.kr/" target="_blank">VIEW SITE</a></span>
+      <span><a href="#!">GITHUB <span class="github_btnIcon"><img src="./images/icon/github_btn.png" alt="github"></span></a></span>
+    </div>
+  </div>
+</div>
+
+<div class="d_content_container">
+  <div class="ovenlog_window">
+    <video autoplay loop muted playsinline">
+      <source src="./images/img/ovenlog_full.mp4" type="video/mp4">
+      <img src="./images/img/fallback.png" alt="영상 재생 불가 시 표시될 이미지">
+    </video>
+  </div>
+
+  <div class="main_desc">
+    <p class="desc_title">OVERVIEW</p>
+    <p class="d_desc">
+      - 베이커리 적응형 웹사이트 퍼블리싱 개인 프로젝트.<br>
+      - JavaScript 기반 UI 인터랙션 리팩토링<br>
+      - JSON 데이터 바인딩 로그인·회원가입 구현
+    </p>
+    <p class="desc_title">PERIOD</p>
+    <p class="d_desc">
+      Planning / Design: 2026.06<br>
+      Frontend: 2026.06 - 2026.07<br>
+      Refactoring: 2026.07 - 2026.08
+    </p>
+    <p class="desc_title">ROLE</p>
+    <p class="d_desc">
+      Planning / Design / Frontend 100%
+    </p>
+    <p class="desc_title">SKILL</p>
+    <p class="d_desc04">
+      <img src="./images/icon/skill_html.png" alt="skill_html">
+      <img src="./images/icon/skill_css.png" alt="skill_css">
+      <img src="./images/icon/skill_javascript.png" alt="skill_javascript">
+      <img src="./images/icon/skill_jquery.png" alt="skill_jquery">
+      <img src="./images/icon/skill_mysql.png" alt="skill_mysql">
+    </p>
+  </div>
+</div><!-- d_content_container -->
+
+<div class="d_btn_content">
+  <div class="tab_btns">
+    <button class="tab_btn active" data-tab="design">
+      UI Design
+    </button>
+
+    <button class="tab_btn" data-tab="frontend">
+      Frontend Point
+    </button>
+  </div>
+
+  <div class="tab_contents">
+    <div class="tab_content active" id="design">
+      <div class="tab_title_box">
+        <div class="hr"></div>
+        <div class="tab_title">Detail UI Design</div>
+        <div class="hr"></div>
+      </div>
+
+      <div class="ui_design_con">
+        <div class="ui_design">
+          <div class="ui_img">
+            <img src="./images/img/ovenlog_ui_1.jpg" alt="상품 리스트 페이지">
+          </div>
+          <p>상품 리스트 페이지</p>
+        </div>
+
+        <div class="ui_design">
+          <div class="ui_img">
+            <img src="./images/img/ovenlog_ui_2.jpg" alt="상품 상세 페이지">
+          </div>
+          <p>상품 상세 페이지</p>
+        </div>
+
+        <div class="ui_design">
+          <div class="ui_img">
+            <img src="./images/img/ovenlog_ui_3.jpg" alt="로그인 페이지">
+          </div>
+          <p>로그인 페이지</p>
+        </div>
+
+        <div class="ui_design">
+          <div class="ui_img">
+            <img src="./images/img/ovenlog_ui_4.jpg" alt="회원가입 페이지">
+          </div>
+          <p>회원가입 페이지</p>
+        </div>
+
+      </div>
+    </div>
+
+<div class="tab_content" id="frontend">
+  <div class="tab_title_box">
+    <div class="hr"></div>
+    <div class="tab_title">Frontend Point</div>
+    <div class="hr"></div>
+  </div>
+
+  <div class="tab_btns">
+    <button class="view_content active" data-content="code">
+      Code View
+    </button>
+
+    <button class="view_content" data-content="image">
+      Image View
+    </button>
+  </div>
+
+  <div class="view_contents">
+    
+
+  </div>
+</div>
+  </div>
+</div>
+
+<div class="botton_btn">
+  <button class="back">
+    <a href="index.html">홈으로 돌아가기↺</a>
+  </button>
+  <div class="next_btn">
+    <a href="#!">
+      <img src="./images/icon/next_btn.png" alt="다음버튼">
+    </a>
+  </div>
+</div>
+
   
+</section>
 </body>
 </html>

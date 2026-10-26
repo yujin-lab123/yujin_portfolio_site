@@ -1,3 +1,268 @@
-.ovenlog_window{
-  width: 500px; height: auto;
+/*------------common----------------*/
+
+:root{
+  --default-font: 'Pretendard', sans-serif;
+  --coding-font: 'D2Coding', serif;
+  --point-color: #9CDCFE;
+  --black-color: #000;
+  --white-color: #fff;
+  --gray-color: #b1b1b1;
+  --margin: calc(100% - 180px);
 }
+
+body{
+  overflow-x: hidden;
+  background-color: var(--black-color);
+}
+
+.tab_title_box{
+  width: var(--margin);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px; 
+}
+.hr{
+    flex: 1;
+    height: 1px;
+    background-color: var(--gray-color);
+  }
+.tab_title{
+  white-space: nowrap;
+  font-size: 14px;
+  font-family: var(--coding-font);
+}
+
+
+/*------------common----------------*/
+
+
+.site_btn a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+
+/*------------------------------------*/
+
+.detail_page{
+  .d_topTitle{
+    width: var(--margin);
+    margin: 30px auto;
+    margin-top: 80px;
+
+    .d_title{
+      position: relative;
+      margin-left: 10px;
+
+      .d_num{
+        position: absolute;
+        top: -30px; left: -10px;
+        font-size: 3rem;
+        font-weight: 300;
+        color: rgba(156, 220, 254, 0.8);
+        z-index: 1;
+      }
+      .d_mainTitle{
+        position: relative;
+        font-size: 3rem;
+        z-index: 2;
+      }
+      .d_subTitle{
+        font-size: 0.9rem;
+      }
+      .site_btn{
+        margin-top: 20px;
+
+        & > span{
+          font-size: 12px;
+          margin-right: 10px;
+
+          a{
+            display: inline-block;
+            padding: 5px 10px;
+            color: var(--gray-color);
+            font-family: var(--coding-font);
+            border: 1px solid var(--gray-color);
+            border-radius: 5px;
+          }
+
+          .github_btnIcon {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+          }
+
+          .github_btnIcon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+
+  .d_content_container{
+    width: var(--margin); height: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 100px;
+
+    .ovenlog_window{
+      width: 650px; height: auto;
+      margin-top: 30px;
+
+      video{
+        width: 100%; height: 100%;
+      }
+    }
+
+    .main_desc{
+
+      .desc_title{
+        font-size: 12px;
+        color: var(--gray-color);
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
+      .d_desc04{
+        display: flex;
+        gap: 10px;
+        img{
+          width: 50px; height: auto;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  .d_btn_content{
+    .tab_btns{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      button{
+        color: var(--white-color);
+        font-family: var(--coding-font);
+      }
+    }
+
+    .tab_btn{
+      padding: 5px 15px;
+      border: 1px solid #555;
+      border-radius: 30px;
+      background: transparent;
+      color: #888;
+      cursor: pointer;
+
+      &.active{
+        border-color: #79c9e8;
+        color: #79c9e8;
+      }
+    }
+
+    .tab_contents{
+      margin-top: 50px;
+
+      .tab_content{
+        display: none;
+        color: var(--white-color);
+
+        &.active{
+          display: block;
+        }
+
+        .ui_design_con{
+          width: var(--margin);
+          margin: 0 auto;
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+          margin-bottom: 80px;
+
+          .ui_design{
+            text-align: center;
+
+            p{
+              font-size: 14px;
+              margin-top: 10px;
+            }
+          }
+        }
+
+        .view_content{
+          padding: 5px 15px;
+          border: 1px solid #555;
+          border-radius: 30px;
+          background: transparent;
+          color: #888;
+          cursor: pointer;
+
+          &.active{
+            border-color: #79c9e8;
+            color: #79c9e8;
+          }
+        }
+      }
+    }
+  }
+
+  .botton_btn{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+    .back{
+      border: 1px solid var(--gray-color);
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 12px;
+      margin-left: 60px;
+      transition: all 0.3s;
+
+      a{
+        color: var(--gray-color);
+        &:hover{
+          color: var(--white-color);
+          transition: all 0.3s;
+        }
+      }
+
+      &:hover{
+      border: 1px solid var(--white-color);
+    }
+    }
+
+    .next_btn{
+      width: 30px; height: 30px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

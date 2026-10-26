@@ -183,11 +183,11 @@ body{
   height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: 100px;
 }
 .hello{
   font-family: var(--default-font);
-  font-size: 3.25rem;
+  font-size: 34px;
   font-weight: 500;
   color: var(--white-color);
   margin-top: 100px;
@@ -210,7 +210,7 @@ body{
 
 .profile .profile_top .profile_bg{
   position: absolute;
-  top: 21%;
+  top: 10%;
   left: 0;
   color: rgba(255, 255, 255, 0.1);
   font-size: 180px;
