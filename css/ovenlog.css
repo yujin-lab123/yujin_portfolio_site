@@ -116,7 +116,7 @@ body{
     margin-bottom: 100px;
 
     .ovenlog_window{
-      width: 650px; height: auto;
+      width: 750px; height: auto;
       margin-top: 30px;
 
       video{
@@ -169,6 +169,62 @@ body{
       }
     }
 
+    .view_btn{
+      width: 1024px;
+      display: flex;
+      gap: 40px;
+      margin: 80px auto;
+      margin-bottom: 20px;
+      padding-left: 40px;
+
+      .view_option {
+        position: relative;
+
+        input {
+          position: absolute;
+          opacity: 0;
+        }
+
+        label {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          font-family: var(--coding-font);
+
+          &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray-color);
+            border-radius: 5px;
+            box-sizing: border-box;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background-image: url("../images/icon/check_icon.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
+
+        input:checked + label::after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
     .tab_contents{
       margin-top: 50px;
 
@@ -209,6 +265,38 @@ body{
           &.active{
             border-color: #79c9e8;
             color: #79c9e8;
+          }
+        }
+      }
+
+      .codeView_contents,
+      .imageView_contents {
+        display: none;
+      }
+
+      .view_box{
+        width: 1024px; height: 500px;
+        border: 1px solid var(--gray-color);
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+      }
+
+      .view_desc{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 80px;
+        gap: 10px;
+
+        li{
+          display: flex;
+          font-size: 18px;
+          gap: 10px;
+
+          .miniCheck{
+            width: 20px; height: 20px;
           }
         }
       }

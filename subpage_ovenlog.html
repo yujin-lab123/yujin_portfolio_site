@@ -57,10 +57,12 @@
   <header class="header" id="home">
   <nav class="nav">
     <div class="nav_left">
-      <img src="./images/icon/portfolio_logo.png" alt="로고">
-      <span>YUJIN</span>
-      <span class="thin">|</span>
-      <span class="thin">Frontend Developer</span>
+      <a href="index.html">
+        <img src="./images/icon/portfolio_logo.png" alt="로고">
+        <span>YUJIN</span>
+        <span class="thin">|</span>
+        <span class="thin">Frontend Developer</span>
+      </a>
     </div>
 
     <ul class="nav_right">
@@ -178,7 +180,7 @@
     <div class="hr"></div>
   </div>
 
-  <div class="tab_btns">
+  <!-- <div class="tab_btns">
     <button class="view_content active" data-content="code">
       Code View
     </button>
@@ -186,11 +188,46 @@
     <button class="view_content" data-content="image">
       Image View
     </button>
+  </div> -->
+
+  <div class="view_btn">
+
+  <div class="view_option">
+    <input type="radio" name="viewType" id="codeView" value="code" checked>
+    <label for="codeView">Code View</label>
   </div>
 
-  <div class="view_contents">
-    
+  <div class="view_option">
+    <input type="radio" name="viewType" id="imageView" value="image">
+    <label for="imageView">Image View</label>
+  </div>
 
+</div>
+
+  <div class="codeView_contents">
+    <div class="view_box">
+
+    </div>
+    <ul class="view_desc">
+      <li>
+        <img class="miniCheck" src="./images/icon/check_icon.png" alt="check">
+        <span>설명넣기알이ㅏ츠ㅏㅊ다ㅓㅊ둧더ㅜ어ㅜ</span>
+      </li>
+      <li>
+        <img class="miniCheck" src="./images/icon/check_icon.png" alt="check">
+        <span>설명넣기알이ㅏ츠ㅏㅊ다ㅓㅊ둧더ㅜ어ㅜ</span>
+      </li>
+      <li>
+        <img class="miniCheck" src="./images/icon/check_icon.png" alt="check">
+        <span>설명넣기알이ㅏ츠ㅏㅊ다ㅓㅊ둧더ㅜ어ㅜ</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="imageView_contents">
+    <div class="view_box">
+      
+    </div>
   </div>
 </div>
   </div>

@@ -1,44 +1,53 @@
-// 메인 페이지 GSAP 애니메이션
-// 인트로 종료는 intro.js가 담당하므로 여기서는 인트로를 제어하지 않습니다.
-document.addEventListener('DOMContentLoaded', () => {
-  if (!window.gsap) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+gsap.set('.main_text p', { opacity: 0, y: 45 });
+gsap.set('.deco01, .deco02, .deco03', { opacity: 0, scale: 0.5, rotation: -18 });
 
-  // 메인 타이틀을 아래에서 위로 등장시킵니다.
-  gsap.from('.main_text p', {
-    opacity: 0,
-    y: 45,
+function startMainAnimation() {
+  gsap.to('.main_text p', {
+    opacity: 1,
+    y: 0,
     duration: 0.9,
     stagger: 0.16,
     ease: 'power3.out',
-    delay: 4.5
+    delay: 0.3
   });
-
-  // 장식 이미지가 가볍게 튀어나온 뒤 천천히 떠다닙니다.
-  gsap.fromTo('.deco01, .deco02, .deco03',
-    { opacity: 0, scale: 0.5, rotation: -18 },
-    {
-      opacity: 1,
-      scale: 1,
-      rotation: 0,
-      duration: 0.8,
-      stagger: 0.18,
-      ease: 'back.out(1.7)',
-      delay: 4.5,
-      onComplete: () => {
-        gsap.to('.deco01, .deco02, .deco03', {
-          y: -12,
-          duration: 2,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          stagger: 0.3
-        });
-      }
+ 
+  gsap.to('.deco01, .deco02, .deco03', {
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
+    duration: 0.8,
+    stagger: 0.18,
+    ease: 'back.out(1.7)',
+    delay: 0.3,
+    onComplete: function () {
+      gsap.to('.deco01', {
+        y: -20,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+      gsap.to('.deco02', {
+        x: 15,
+        rotation: 10,
+        duration: 1.8,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+      gsap.to('.deco03', {
+        rotation: 360,
+        duration: 4,
+        repeat: -1,
+        ease: 'none'
+      });
     }
-  );
+  });
+}
 
-  // 스크롤을 내려 요소가 화면에 들어오면 한 번 나타나게 합니다.
+/*---------------/메인 화면----------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
   const revealItems = document.querySelectorAll(
     '.profile_title, .profile_box, .skill_desc, .project_box, .together_text'
   );
@@ -58,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', revealOnScroll, { passive: true });
   revealOnScroll();
 
-  // 프로젝트 이미지에 마우스를 올리면 확대됩니다.
   document.querySelectorAll('.project_box').forEach((card) => {
     const image = card.querySelector('.project_thumbnail img');
     if (!image) return;
@@ -70,4 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.to(image, { scale: 1, duration: 0.45, ease: 'power2.out' });
     });
   });
-});
+
+/*--------------------------------*/
+
+  gsap.to(".profile_bg", {
+    xPercent: -50,
+    duration: 60,
+    ease: "none",
+    repeat: -1
+  });
+
+});/*--end--*/

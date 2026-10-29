@@ -50,7 +50,7 @@
   </style>
 
 
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="./javascript/intro.js"></script>
   <script defer src="./javascript/gsap.js"></script>
   <script defer src="./javascript/main.js"></script>
@@ -84,10 +84,12 @@
 <header class="header" id="home">
   <nav class="nav">
     <div class="nav_left">
-      <img src="./images/icon/portfolio_logo.png" alt="로고">
-      <span>YUJIN</span>
-      <span class="thin">|</span>
-      <span class="thin">Frontend Developer</span>
+      <a href="index.html">
+        <img src="./images/icon/portfolio_logo.png" alt="로고">
+        <span>YUJIN</span>
+        <span class="thin">|</span>
+        <span class="thin">Frontend Developer</span>
+      </a>
     </div>
 
     <ul class="nav_right">
@@ -138,7 +140,10 @@
         </p>
         <p class="hello_sub">문제를 해결하는 코드를 고민하고 사용자가 자연스럽게<br>
         경험할 수 있는 인터페이스를 만드는 것을 좋아합니다.</p>
-        <div class="profile_bg">create(experience); create(interface); create(solution); create(experience); create(interface); create(solution);</div>
+        <div class="profile_bg">
+          <span>create(experience); create(interface); create(solution); </span>
+          <span>create(experience); create(interface); create(solution); </span>
+        </div>
       </div>
       <div class="profile_snap">
         <!-- <img src="" alt="정유진 프로필 스냅사진"> -->
@@ -399,7 +404,7 @@
   </div>
 
   <div class="email_box">
-    <p class="myEmail">XXXXXXXX@gmail.com</p>
+    <p class="myEmail">yujin4916@gmail.com</p>
     <i class="fa-regular fa-clone"></i>
 
     <div class="copy_popup">Click Me!</div>

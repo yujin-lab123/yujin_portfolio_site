@@ -1,94 +1,108 @@
-﻿// 일반 JavaScript: 스킬 설명, 이메일 복사, TOP 버튼
+﻿// ===============================
+// 1. 스킬 아이콘 클릭하면 설명 바꾸기
+// ===============================
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 스킬 아이콘을 누르면 오른쪽 설명 카드가 바뀝니다.
-  const skillInfo = {
-    html: ['HTML', '구조가 잘 잡힌 웹 페이지를 만들 수 있어요.'],
-    css: ['CSS', '레이아웃과 스타일을 구성할 수 있어요.'],
-    sass: ['SASS', '변수를 사용해 CSS를 편리하게 관리해요.'],
-    javascript: ['JavaScript', '사용자와 상호작용하는 기능을 만들어요.'],
-    react: ['React', '컴포넌트 기반으로 화면을 구성해요.'],
-    gsap: ['GSAP', '움직임이 자연스러운 애니메이션을 만들어요.'],
-    jquery: ['jQuery', '간단한 DOM 조작과 이벤트를 처리해요.'],
-    mysql: ['MySQL', '데이터를 저장하고 조회할 수 있어요.'],
-    vscode: ['VS Code', '코드를 작성하고 관리하는 편집기예요.'],
-    github: ['GitHub', '코드 버전을 관리하고 공유해요.'],
-    figma: ['Figma', '화면을 디자인하고 프로토타입을 만들어요.'],
-    photoshop: ['Photoshop', '이미지 편집과 그래픽 작업을 해요.']
-  };
+// 스킬 정보 (이름과 설명)
+const skillInfo = {
+  html: { title: 'HTML', text: '시맨틱 마크업과 웹 표준을 고려해 구조를 설계하고, 다양한 페이지를 안정적으로 구현할 수 있습니다.' },
+  css: { title: 'CSS', text: '웹 페이지의 색상과 레이아웃을 자유롭게 꾸밀 수 있으며, CSS로 구현할 수 있는 간단한 애니메이션도 구현할 수 있습니다.' },
+  sass: { title: 'SASS', text: 'CSS를 바탕으로 좀 더 효율적인 SASS코드를 사용할 수 있으며, 기본적인 변수, 중첩, Mixin, 반복문을 사용할 수 있습니다.' },
+  javascript: { title: 'JavaScript', text: '버튼과 메뉴처럼 동적인 기능을 만들어 낼 수 있으며 프론트엔드의 기본적인 기술인 문서 제어(DOM Control) 기능을 수행할 수 있습니다.' },
+  react: { title: 'React', text: 'React의 핵심 개념을 익혔고 컴포넌트 기반으로 사용자 인터페이스를 구현할 수 있습니다.' },
+  gsap: { title: 'GSAP', text: 'GSAP를 활용해 기본적인 스크롤 웹 인터랙션과 애니메이션을 구현할 수 있습니다.' },
+  jquery: { title: 'jQuery', text: '웹 페이지의 DOM 조작, 이벤트 처리, 애니메이션 구현 등 기본적인 동적 기능을 구현할 수 있습니다.' },
+  mysql: { title: 'MySQL', text: '웹 사이트의 데이터를 저장하고 관리해본 경험이 있으며 데이터의 생성, 수정, 삭제 등을 해본 적이 있습니다.' },
+  vscode: { title: 'VS Code', text: '코드를 작성하는 주된 편집기이며 플러그인 등을 사용해 코드를 작성할 수 있습니다.' },
+  github: { title: 'GitHub', text: '코드를 저장하고 버전을 관리할 수 있습니다.' },
+  figma: { title: 'Figma', text: '오토레이아웃 등 피그마의 핵심 기능을 사용할 수 있으며 화면을 다지인 할 수 있습니다.' },
+  photoshop: { title: 'Photoshop', text: '이미지를 편집하고 보정할 수 있으며 간단한 애니메이션 기능도 사용할 수 있습니다.' }
+};
 
-  const skillImages = document.querySelectorAll('.skill_img img');
-  const skillTitle = document.querySelector('.skill_desc .skill_title');
-  const skillText = document.querySelector('.skill_desc .skill_text');
-  const skillDescriptionImage = document.querySelector('.skill_desc .skill_iconImg img');
+// HTML 요소 가져오기
+const skillImages = document.querySelectorAll('.skill_img img');
+const skillTitle = document.querySelector('.skill_desc .skill_title');
+const skillText = document.querySelector('.skill_desc .skill_text');
+const skillIcon = document.querySelector('.skill_desc .skill_iconImg img');
 
-  skillImages.forEach((image) => {
-    image.tabIndex = 0;
-    image.setAttribute('role', 'button');
-    image.setAttribute('aria-label', `${image.alt} 설명 보기`);
+// 아이콘을 클릭했을 때 실행할 함수
+function showSkill(image) {
+ 
 
-    const showSkill = () => {
-      const key = image.alt.toLowerCase();
-      const info = skillInfo[key];
-      if (!info || !skillTitle || !skillText) return;
+  // 그 이름에 맞는 정보를 꺼내요
+  const info = skillInfo[image.alt];
 
-      skillTitle.textContent = info[0];
-      skillText.textContent = info[1];
-      if (skillDescriptionImage) {
-        skillDescriptionImage.src = image.src;
-        skillDescriptionImage.alt = image.alt;
-      }
-    };
+  // 정보가 없으면 여기서 끝내요
+  if (info === undefined) {
+    return;
+  }
 
-    image.addEventListener('click', showSkill);
-    image.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        showSkill();
-      }
-    });
+  // 제목, 설명, 이미지를 바꿔요
+  skillTitle.textContent = info.title;
+  skillText.textContent = info.text;
+  skillIcon.src = image.src;
+  skillIcon.alt = image.alt;
+}
+
+// 모든 스킬 이미지에 클릭 기능 붙이기
+for (let i = 0; i < skillImages.length; i++) {
+  const img = skillImages[i];
+
+  img.style.cursor = 'pointer';
+
+  img.addEventListener('click', function () {
+    showSkill(img);
   });
+}
 
-  // 이메일 주소나 복사 아이콘을 누르면 주소를 복사합니다.
-  const email = document.querySelector('.myEmail');
-  const copyIcon = document.querySelector('.fa-clone');
-  const popup = document.querySelector('.copy_popup');
 
-  const copyEmail = async () => {
-    if (!email) return;
-    const address = email.textContent.trim();
-    try {
-      await navigator.clipboard.writeText(address);
-      if (popup) {
-        popup.textContent = 'Copied!';
-        popup.classList.add('is-visible');
-        window.setTimeout(() => {
-          popup.classList.remove('is-visible');
-          popup.textContent = 'Click Me!';
-        }, 1600);
-      }
-    } catch (error) {
-      // 로컬 파일(file://)이나 보안 연결이 아닌 경우 브라우저가 복사를 막을 수 있습니다.
-      window.prompt('이메일 주소를 복사해 주세요.', address);
-    }
-  };
+// ===============================
+// 2. 이메일 복사하기
+// ===============================
 
-  email?.addEventListener('click', copyEmail);
-  copyIcon?.addEventListener('click', copyEmail);
-  copyIcon?.setAttribute('role', 'button');
-  copyIcon?.setAttribute('tabindex', '0');
-  copyIcon?.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      copyEmail();
-    }
+const email = document.querySelector('.myEmail');
+const copyIcon = document.querySelector('.fa-clone');
+const popup = document.querySelector('.copy_popup');
+
+// 이메일 복사 함수
+function copyEmail() {
+  const address = email.textContent.trim();
+
+  // 클립보드에 복사
+  navigator.clipboard.writeText(address).then(function () {
+    // 복사 성공하면 팝업 문구 바꾸기
+    popup.textContent = 'Copied!';
+    popup.style.opacity = '1';
+
+    // 1.5초 뒤에 원래대로 되돌리기
+    setTimeout(function () {
+      popup.textContent = 'Click Me!';
+      popup.style.opacity = '';
+    }, 1500);
   });
+}
 
-  // 스크롤을 내렸을 때만 TOP 버튼을 보여줍니다.
-  const topButton = document.querySelector('.topBtn');
-  const updateTopButton = () => {
-    if (topButton) topButton.classList.toggle('is-visible', window.scrollY > 400);
-  };
-  window.addEventListener('scroll', updateTopButton, { passive: true });
-  updateTopButton();
-});
+// 이메일 글자와 복사 아이콘을 클릭하면 복사
+email.addEventListener('click', copyEmail);
+copyIcon.addEventListener('click', copyEmail);
+
+
+// ===============================
+// 3. 맨 위로 가는 버튼 (스크롤하면 나타남)
+// ===============================
+
+const topButton = document.querySelector('.topBtn');
+
+function updateTopButton() {
+  // 400px 넘게 스크롤했으면 보이기
+  if (window.scrollY > 400) {
+    topButton.style.opacity = '1';
+    topButton.style.pointerEvents = 'auto';
+  } else {
+    // 아니면 숨기기
+    topButton.style.opacity = '0';
+    topButton.style.pointerEvents = 'none';
+  }
+}
+
+window.addEventListener('scroll', updateTopButton);
+updateTopButton();

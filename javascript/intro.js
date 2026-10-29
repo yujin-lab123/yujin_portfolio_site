@@ -1,70 +1,58 @@
-// 인트로 타자 효과
-// TextPlugin 없이 JavaScript로 글자를 하나씩 표시합니다.
-document.addEventListener('DOMContentLoaded', async () => {
-  const intro = document.querySelector('.intro');
-  if (!intro) return;
+const intro = document.querySelector('.intro');
+const caret = document.querySelector('.intro .caret');
+const parts = document.querySelectorAll('.intro_text span:not(.caret)');
 
-  const textParts = Array.from(intro.querySelectorAll('.intro_text span:not(.caret)'));
-  const caret = intro.querySelector('.caret');
-  if (textParts.length === 0) return;
+const texts = [];
+for (let i = 0; i < parts.length; i++) {
+  texts.push(parts[i].textContent);
+  parts[i].textContent = '';
+}
 
-  // HTML에 적힌 문구를 기억한 다음, 화면에서는 잠시 비웁니다.
-  const fullTexts = textParts.map((part) => part.textContent);
-  textParts.forEach((part) => { part.textContent = ''; });
+intro.style.display = 'flex';
+intro.style.visibility = 'visible';
+intro.style.opacity = '1';
 
-  intro.style.display = 'flex';
-  intro.style.visibility = 'visible';
-  intro.style.opacity = '1';
+caret.style.opacity = '0';
 
-  // 타이핑이 끝날 때까지 커서를 숨겨 둡니다.
-  let cursorAnimation;
-  if (caret) {
-    caret.style.opacity = '0';
-  }
-
-  const wait = (milliseconds) => new Promise((resolve) => {
-    window.setTimeout(resolve, milliseconds);
+function closeIntro() {
+  startMainAnimation();
+  gsap.killTweensOf(caret);
+  gsap.to(intro, {
+    autoAlpha: 0,
+    duration: 0.8,
+    onComplete: function () {
+      intro.style.display = 'none';
+    }
   });
+}
 
-  for (let partIndex = 0; partIndex < textParts.length; partIndex += 1) {
-    const part = textParts[partIndex];
-    const letters = Array.from(fullTexts[partIndex]);
+let partNum = 0;
+let letterNum = 0;
+let endTimer;
 
-    for (const letter of letters) {
-      part.textContent += letter;
-      await wait(65);
-    }
+const timer = setInterval(function () {
+  if (partNum >= parts.length) {
+    clearInterval(timer); // 타이핑 멈추기
 
-    await wait(100);
-  }
-
-  // 닫는 중괄호까지 다 쓴 다음 커서를 보여주고 깜빡이게 합니다.
-  if (caret) {
     caret.style.opacity = '1';
-    if (window.gsap) {
-      cursorAnimation = gsap.to(caret, {
-        opacity: 0,
-        duration: 0.45,
-        repeat: -1,
-        yoyo: true,
-        ease: 'steps(1)'
-      });
-    }
+    gsap.to(caret, { opacity: 0, duration: 0.45, repeat: -1, yoyo: true, ease: 'steps(1)' });
+
+    endTimer = setTimeout(closeIntro, 1500);
+    return;
   }
 
-  // 완성된 코드와 깜빡이는 커서를 잠시 보여준 뒤 인트로를 닫습니다.
-  await wait(1500);
-  cursorAnimation?.kill();
+  parts[partNum].textContent += texts[partNum][letterNum];
+  letterNum++;
 
-  if (window.gsap) {
-    gsap.to(intro, {
-      autoAlpha: 0,
-      duration: 0.8,
-      onComplete: () => { intro.style.display = 'none'; }
-    });
-  } else {
-    intro.style.opacity = '0';
-    window.setTimeout(() => { intro.style.display = 'none'; }, 800);
+  if (letterNum >= texts[partNum].length) {
+    partNum++;
+    letterNum = 0;
   }
+}, 65);
+
+intro.addEventListener('click', function () {
+  intro.style.pointerEvents = 'none';
+  clearInterval(timer);
+  clearTimeout(endTimer);
+  closeIntro();
 });
-
