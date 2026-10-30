@@ -262,12 +262,14 @@ body{
 }
 .profile_box p{
   font-size: 18px;
+  color: #ccc;
 }
 .profile_box .profile_box_txt01{
   font-size: 22px;
   font-weight: 500;
   margin-top: 10px;
   margin-bottom: 20px;
+  color: var(--white-color);
 }
 .profile_box .profile_box_txt02 > span,
 .profile_box .profile_box_txt03 > span{
@@ -588,6 +590,60 @@ body{position: relative;}
   transition: all 0.3s;
 }
 
+
+/*-----------------푸터---------------------*/
+
+.footer{
+  width: var(--margin);
+  margin: 0 auto;
+  border-top: 1px solid var(--white-color);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--coding-font);
+  color: var(--white-color);
+  padding: 30px;
+
+  .footer_left{
+    font-family: var(--default-font);
+
+    .name{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .frontend{
+      font-size: 14px;
+      font-weight: 200;
+      margin-top: 5px;
+      margin-bottom: 12px;
+      color: var(--gray-color);
+    }
+  }
+  .footer_right{
+    
+
+    a{
+      font-family: var(--coding-font);
+    }
+
+    .quick_menu, .contact_menu{
+      display: flex;
+      justify-content: end;
+      color: var(--gray-color);
+
+      li{
+        margin-left: 20px;
+        margin-bottom: 20px;
+        color: var(--white-color);
+      }
+    }
+
+    .reserved{
+      font-size: 12px;
+      text-align: end;
+      color: var(--gray-color);
+    }
+  }
+}
 
 
 
